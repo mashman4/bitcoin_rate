@@ -13,7 +13,10 @@ import pymysql
 import setup
 
 
+
 time_flag = True
+
+
 
 
 while True:
