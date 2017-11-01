@@ -20,7 +20,7 @@ time_flag = True
 
 
 while True:
-    conn = pymysql.connect(host=setup.host, port=3306, user='yamashirotakurou', passwd=setup.pw,db='mysql', charset='utf8')
+    conn = pymysql.connect(host=setup.host, port=3306, user='yamashirotakurou', passwd=setup.pw, db='mysql', charset='utf8')
     cur = conn.cursor()
     cur.execute("USE bitcoin_rate")
 
@@ -61,8 +61,8 @@ while True:
             pass
     # 摘出した1ビットコインの価格を時間とともに出力します。
     bitcoin_rate = bitcoin_rate.strip()
-    bitcoin_rate = bitcoin_rate.replace(",","")
-    time_is = time_is.replace("/","-")
+    bitcoin_rate = bitcoin_rate.replace(",", "")
+    time_is = time_is.replace("/", "-")
     print (time_is + ' , '+ '¥' + bitcoin_rate)
     
     cur.execute("INSERT INTO trade(date_time,rate) VALUES (%s,%s)",(time_is,bitcoin_rate))
